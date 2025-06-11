@@ -67,9 +67,8 @@ function validateForm() {
         return false;
     }
     
-    // Si estamos usando FormSubmit, permitimos que el formulario se envíe
-    return true;
-}
-// Aquí normalmente enviarías el formulario a un servidor
-alert('¡Gracias por tu mensaje! Te contactaremos pronto.');
+    // Aquí normalmente enviarías el formulario a un servidor
+    alert('¡Gracias por tu mensaje! Te contactaremos pronto.');
     return true; // Prevenir el envío del formulario para esta demostración
+}
+
