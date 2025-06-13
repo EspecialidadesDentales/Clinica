@@ -354,9 +354,10 @@ nav.container, .nav-links {
 }
 .team-member img {
     width: 100%;
-    max-width: 350px;
-    min-height: 350px;
-    height: 350px;
+    max-width: 450px;
+    min-height: 450px;
+    height: 450px;
+    width: 450px;
     margin: 0 auto;
     display: block;
     object-fit: cover;
@@ -502,9 +503,9 @@ nav.container {
 /* Media Queries para tablets y desktop */
 @media (max-width: 599px) {
     .team-member img {
-        max-width: 300px;
-        min-height: 300px;
-        height: 300px;
+        max-width: 400px;
+        min-height: 400px;
+        height: 400px;
     }
 }
 
