@@ -1,11 +1,20 @@
+* {
+    box-sizing: border-box;
+}
+
+html, body {
+    overflow-x: hidden;
+    width: 100%;
+}
+
 .container {
     max-width: 1200px;
     margin: 0 auto;
     padding: 0 20px;
+    width: 100%;
 }
-
 section {
-    padding: 40px 0;
+    padding: 30px 0;
 }
 
 /* Ajustes para títulos de secciones */
@@ -203,6 +212,7 @@ section {
     }
 }
 
+/* Sección Footer------------------------------------------*/
 footer {
     width: 100vw;
     display: flex;
@@ -233,7 +243,7 @@ footer p {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    min-height: 60vh;
+    min-height: 80vh;
     padding: 3rem 1rem 2rem 1rem;
     background: linear-gradient(rgba(43,57,144,0.7), rgba(43,57,144,0.7)), url('Image/Hero.jpg') center/cover no-repeat;
     color: #fff;
@@ -325,9 +335,15 @@ nav.container, .nav-links {
     align-items: flex-start;
 }
 .nav-links {
+    display: grid;
+    place-items: center;
     width: 100%;
     gap: 10px;
-    margin-top: 10px;
+    margin-top: 10px;   
+}
+.nav-links li {
+    width: 200px;
+  margin: 0 auto;
 }
 .hero {
     min-height: 320px;
@@ -338,6 +354,7 @@ nav.container, .nav-links {
 }
 .hero-parrafo {
     font-size: 1.3rem;
+    margin-bottom: 40px;
 }
 .section-title {
     font-size: 2rem;
@@ -388,6 +405,7 @@ nav.container {
     justify-content: space-between;
     padding: 25px 0;
     min-height: 120px;
+    position: relative;
 }
 .logo-container {
     display: flex;
@@ -408,7 +426,7 @@ nav.container {
     justify-content: center;
 }
 .logo-text h1 {
-    font-size: 2.4rem;
+    font-size: 2.2rem;
     color: #2a6496;
     margin: 0;
     line-height: 1.1;
@@ -418,6 +436,7 @@ nav.container {
 }
 .logo-text h2 {
     font-size: 1.6rem;
+    font-family: 'Edwardian Script', cursive;
     color: #6ec1e4;
     font-weight: 600;
     margin: 0;
@@ -425,6 +444,39 @@ nav.container {
     text-shadow: 0 2px 4px rgba(0,0,0,0.15);
     letter-spacing: 0.3px;
 }
+
+/* Menú hamburguesa */
+.hamburger-menu {
+    display: none;
+    flex-direction: column;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 10px;
+    z-index: 1001;
+}
+
+.hamburger-menu span {
+    width: 25px;
+    height: 3px;
+    background-color: #2a6496;
+    margin: 3px 0;
+    transition: 0.3s;
+    border-radius: 2px;
+}
+
+.hamburger-menu.active span:nth-child(1) {
+    transform: rotate(-45deg) translate(-5px, 6px);
+}
+
+.hamburger-menu.active span:nth-child(2) {
+    opacity: 0;
+}
+
+.hamburger-menu.active span:nth-child(3) {
+    transform: rotate(45deg) translate(-5px, -6px);
+}
+
 .nav-links {
     display: flex;
     flex-direction: row;
@@ -435,18 +487,11 @@ nav.container {
     list-style: none;
     justify-content: flex-end;
 }
-@media (max-width: 700px) {
-    .nav-links {
-        flex-direction: column;
-        width: 100%;
-        gap: 10px;
-        align-items: flex-start;
-        justify-content: flex-start;
-    }
-}
+
 .nav-links li {
     list-style: none;
 }
+
 .nav-links a {
     color: #2B3990;
     text-decoration: none;
@@ -457,25 +502,68 @@ nav.container {
     text-shadow: none;
     transition: color 0.3s;
 }
+
 .nav-links a:hover {
     color: #6ec1e4;
     text-shadow: none;
 }
 
-@media (max-width: 700px) {
-    nav.container {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 5px;
+@media (max-width: 768px) {
+    .hamburger-menu {
+        display: flex;
     }
+    
     .nav-links {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        width: 300px;
+        height: 100vh;
+        background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
         flex-direction: column;
-        width: 100%;
-        gap: 10px;
-        align-items: flex-start;
+        justify-content: flex-start;
+        align-items: center;
+        padding-top: 80px;
+        transition: right 0.3s ease;
+        box-shadow: -2px 0 10px rgba(0,0,0,0.1);
+        z-index: 1000;
     }
-    .logo-container {
-        margin-bottom: 8px;
+    
+    .nav-links.active {
+        right: 0;
+    }
+    
+    .nav-links li {
+        margin: 20px 0;
+        width: 100%;
+        text-align: center;
+    }
+    
+    .nav-links a {
+        display: block;
+        padding: 15px 20px;
+        font-size: 1.2rem;
+        margin: 0;
+        border-bottom: 1px solid rgba(42, 100, 150, 0.1);
+        width: 100%;
+    }
+    
+    nav.container {
+        padding: 15px 0;
+        min-height: 80px;
+    }
+    
+    .logo {
+        width: 60px;
+        height: 60px;
+    }
+    
+    .logo-text h1 {
+        font-size: 1.5rem;
+    }
+    
+    .logo-text h2 {
+        font-size: 1.2rem;
     }
 }
 .nav-links {
@@ -484,8 +572,8 @@ nav.container {
     margin-top: 10px;
 }
 .hero {
-    min-height: 320px;
-    padding: 40px 0;
+    min-height: 400px;
+    padding: 20px 0;
 }
 .hero-content h1 {
     font-size: 2rem;
@@ -562,6 +650,13 @@ nav.container {
     font-size: 1.5rem;
     margin-bottom: 20px;
     color: #2B3990;
+    text-align: center;
+}
+.contact-form h4 {
+    font-family: 'Perpetua', serif;
+    font-size: 1rem;
+    margin-bottom: 20px;
+    color: #38bdf8;
     text-align: center;
 }
 .form-group {
@@ -682,8 +777,8 @@ nav.container {
     letter-spacing: 0.5px;
 }
 .about-text p {
-    font-size: .9rem;
-    color: #6ec1e4;
+    font-size: 1.2rem;
+    color: #1476a0;
     font-weight: 200;
     margin: 0;
     line-height: 1.1;
@@ -761,7 +856,7 @@ nav.container {
 }
 .logo-text-servicios p {
     font-size: .9rem;
-    color: #6ec1e4;
+    color:  #1476a0;
     font-weight: 200;
     margin: 0;
     line-height: 1.1;
@@ -780,9 +875,9 @@ nav.container {
 
 .section-subtitle {
     text-align: center;
-    color: #6ec1e4;
+    color:#1476a0;
     font-weight: 200;
-    font-size: 1.1rem;
+    font-size: 1.5rem;
     margin-bottom: 40px;
     font-weight: 400;
 }
@@ -940,4 +1035,66 @@ nav.container {
     .clinic-video {
         max-height: 300px;
     }
+}
+
+/* Media queries para móviles pequeños */
+@media (max-width: 480px) {
+    * {
+        box-sizing: border-box;
+    }
+    
+    html, body {
+        overflow-x: hidden;
+        width: 100%;
+    }
+    
+    .container {
+        max-width: 100%;
+        padding: 0 15px;
+        margin: 0 auto;
+    }
+    
+    .section-title {
+        font-size: 2rem;
+        margin-bottom: 30px;
+    }
+    
+    .hero-content h1 {
+        font-size: 2rem;
+        line-height: 1.2;
+    }
+    
+    .hero-content p {
+        font-size: 1rem;
+        margin-bottom: 20px;
+    }
+    
+    .team-member img {
+        max-width: 280px;
+        min-height: 280px;
+        height: 280px;
+    }
+    
+    .carousel-container {
+        max-width: 100%;
+        margin: 0 10px;
+    }
+    
+    .carousel-slide img {
+        height: 200px;
+    }
+    
+    .nav-links a {
+        font-size: 1rem;
+        margin: 0 0.5rem;
+    }
+    
+    .video-container {
+        margin: 0 10px;
+        padding: 10px;
+    }
+    
+    .clinic-video {
+        max-height: 250px;
+    }       
 }
