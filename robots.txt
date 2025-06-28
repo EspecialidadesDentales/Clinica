@@ -1,0 +1,17 @@
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://especialidadesdentales.github.io/Clinica/sitemap.xml
+
+# Disallow crawling of specific files
+Disallow: /Image/
+Disallow: /*.css$
+Disallow: /*.js$
+
+# Allow crawling of main pages
+Allow: /index.html
+Allow: /gracias.html
+
+# Crawl-delay (optional)
+Crawl-delay: 1
