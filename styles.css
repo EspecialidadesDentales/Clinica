@@ -38,7 +38,7 @@ section {
     color: #232262;
     font-size: 2.8rem; /* Ligeramente más grande */
     position: relative;
-    letter-spacing: 1px; /* Espaciado entre letras para Perpetua */
+    letter-spacing: 1px; /* Espaciado entre letras para Playfair Display */
 }
 
 /* Ajuste para hero section sin header fijo */
@@ -53,7 +53,7 @@ section {
 }
 
 .member-info h4 {
-    font-family: 'Edwardian Script', cursive;
+    font-family: 'Great Vibes', cursive;
     font-size: 2.4rem; /* Tamaño más grande para script font */
     color: #2a6496;
     margin-bottom: 8px;
@@ -165,7 +165,7 @@ section {
     color: #2B3990;
     font-size: 1.8rem;
     margin-bottom: 20px;
-    font-family: 'Perpetua', serif;
+    font-family: 'Playfair Display', serif;
 }
 
 .map-info p {
@@ -270,7 +270,7 @@ footer p {
 }
 .hero-title {
     font-size: 2.5rem;
-    font-family: 'Perpetua', serif;
+    font-family: 'Playfair Display', serif;
     margin-bottom: 1rem;
     text-shadow: 0 2px 8px rgba(0,0,0,0.2);
 }
@@ -282,7 +282,7 @@ footer p {
 }
 .hero-content h2 {
     font-size: clamp(2.4rem, 6vw, 4.5rem);
-    font-family: 'Perpetua', serif;
+    font-family: 'Playfair Display', serif;
     line-height: 1.15;
     margin: 0 auto 1.5rem;
     max-width: 900px;
@@ -485,12 +485,12 @@ nav.container, .nav-links {
     font-weight: 700;
     text-shadow: 0 2px 4px rgba(0,0,0,0.15);
     letter-spacing: 1px;
-    font-family: 'Perpetua', serif;
+    font-family: 'Playfair Display', serif;
 }
 
 .header-title h2 {
     font-size: 1.4rem;
-    font-family: 'Edwardian Script', cursive;
+    font-family: 'Great Vibes', cursive;
     color: #2a6496;
     font-weight: 600;
     margin: 0;
@@ -537,7 +537,7 @@ nav {
 }
 .logo-text h2 {
     font-size: 1.6rem;
-    font-family: 'Edwardian Script', cursive;
+    font-family: 'Great Vibes', cursive;
     color:#2a6496;
     font-weight: 600;
     margin: 0;
@@ -735,6 +735,11 @@ nav {
 }
 
 @media (max-width: 900px) {
+    .hero {
+        min-height: 70vh;
+        padding: 3rem 1rem;
+    }
+
     .hero-layout {
         grid-template-columns: 1fr;
         text-align: center;
@@ -805,7 +810,7 @@ nav {
     font-size: clamp(1.2rem, 2vw, 1.6rem);
     line-height: 1.2;
     font-weight: 400;
-    font-family: 'Perpetua', serif;
+    font-family: 'Playfair Display', serif;
     color: #2B3990;
     font-style: italic;
 }
@@ -980,14 +985,14 @@ nav {
     box-sizing: border-box;
 }
 .contact-form h3 {
-    font-family: 'Perpetua', serif;
+    font-family: 'Playfair Display', serif;
     font-size: 1.5rem;
     margin-bottom: 20px;
     color: #2B3990;
     text-align: center;
 }
 .contact-form h4 {
-    font-family: 'Perpetua', serif;
+    font-family: 'Playfair Display', serif;
     font-size: 1rem;
     margin-bottom: 20px;
     color: #2B3990;
@@ -1483,6 +1488,29 @@ nav {
         padding: 0 15px;
         margin: 0 auto;
     }
+
+    /* Fix: .brand-copy usa width: max-content en la base — en móvil eso hace
+       que el contenedor sea más ancho que la pantalla y los extremos del título
+       se corten. width: 100% lo ciñe al viewport y el texto centra con wrap. */
+    .brand-copy {
+        width: 100%;
+    }
+
+    .brand-copy .header-title h1 {
+        font-size: clamp(1.55rem, 6vw, 2rem);
+        letter-spacing: 0.5px;
+    }
+    
+    /* Fix: la media query de 900px está antes de la regla base (.benefits-grid),
+       así que en móvil ganaba la base con 3 columnas y el texto se desbordaba.
+       Esta regla (después de la base) fuerza 1 columna en pantallas pequeñas. */
+    .benefits-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .benefit-item {
+        padding: 14px 12px;
+    }
     
     .section-title {
         font-size: 2rem;
@@ -1497,6 +1525,13 @@ nav {
     .hero-parrafo {
         font-size: 1rem;
         margin-bottom: 20px;
+    }
+    
+    .hero {
+        min-height: 60vh;
+        padding: 2.5rem 1rem;
+        background: linear-gradient(rgba(43,57,144,0.7), rgba(43,57,144,0.7)), url('Image/Hero-movil.jpg') center/cover no-repeat;
+        background-position: center center;
     }
     
     .team-member img {
